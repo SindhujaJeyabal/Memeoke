@@ -4,7 +4,7 @@ import urllib
 
 # Read lyrics from a url
 def readLyrics():
-	response = urllib2.urlopen('http://people.ischool.berkeley.edu/~sindhuja/song.lrc')
+	response = urllib.urlopen('static/data/song.lrc')
 	lyrics = response.read()
 	return lyrics
 
