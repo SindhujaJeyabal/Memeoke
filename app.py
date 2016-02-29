@@ -19,7 +19,7 @@ import gify
 
 app = flask.Flask(__name__)
 app.debug = True
-SHORT_ROOT_URL = "http://people.ischool.berkeley.edu/~ssnipes/server/shorts/"
+SHORT_ROOT_URL = "/shorts/"
 
 def get_url_from_timestamp():
 	tt = int(time.time())
@@ -88,7 +88,7 @@ def mm_tracklyrics(track_id, artist_name, track_name, soundcloud_id):
 
 @app.route('/share.html/<track_id>/<artist_name>/<track_name>/<soundcloud_id>')
 def shorts_put(track_id,artist_name, track_name, soundcloud_id):
-	long_url="http://people.ischool.berkeley.edu/~ssnipes/server/track.html/"+track_id+"/"+artist_name+"/"+track_name+"/"+soundcloud_id
+	long_url="/track.html/"+track_id+"/"+artist_name+"/"+track_name+"/"+soundcloud_id
 	print long_url
 	short_url=get_url_from_timestamp()
 	print short_url
