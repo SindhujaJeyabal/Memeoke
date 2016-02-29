@@ -4,8 +4,11 @@ import urllib
 
 # Read lyrics from a url
 def readLyrics():
-	response = urllib2.urlopen('http://people.ischool.berkeley.edu/~sindhuja/song.lrc')
-	lyrics = response.read()
+	with open('static/data/song.lrc', 'r') as f:
+		response = f.read()
+	# response = urllib2.urlopen('http://people.ischool.berkeley.edu/~sindhuja/song.lrc')
+	# lyrics = response.read()
+	print(lyrics)
 	return lyrics
 
 RESPONSE_FORMAT = "json"
