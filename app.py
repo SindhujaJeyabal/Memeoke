@@ -16,7 +16,6 @@ import lrc
 import string
 import json
 import gify
-import sc
 
 app = flask.Flask(__name__)
 app.debug = True
