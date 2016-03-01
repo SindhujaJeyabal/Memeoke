@@ -6,7 +6,7 @@
      <link rel="stylesheet" href="http://people.ischool.berkeley.edu/~ssnipes/files/default.css" type="text/css">
      <link rel="stylesheet" href="http://people.ischool.berkeley.edu/~ssnipes/files/fonts.css" type="text/css">
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script src="http://connect.soundcloud.com/sdk.js"></script>
+      <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
       <meta name="viewport" content="width=device-width" />
   	</head>
   	<body>
@@ -107,26 +107,24 @@
 
       function play_sound(){
          var track_id = {{soundcloud_id}};
+         console.log("here")
          console.log(track_id)
          if(track_id == '0'){
           //track_id = '107168279';
               return false;} // Show error
          if(track_id != '-1'){
-         var common = "/tracks/";
-         var track=common.concat(track_id);
-         console.log(track)
-            SC.initialize({
-              client_id: 'ad364b8f0c461ec82043576b89440ab3'
-            });
-
-            // stream track id 293
-            SC.stream(track, function(sound){
-              sound.play();
-            });
+         var track = "https://api.soundcloud.com/tracks/"+track_id+"/stream?client_id=bb653fefd06c6141b51376b0688d4857";
+          console.log(track)
+          var a = new Audio(track);
+          a.play();
           return true;
          }
         return true;
       }
+
+      //  SC.stream('/tracks/293').then(function(player){
+      //  player.play();
+      // } );
 
       function disable(){
          // console.log("111111111")
